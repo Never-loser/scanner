@@ -5,7 +5,8 @@ __pycache__/
 
 # Environment variables (IMPORTANT: never commit real .env)
 .env
-
+BOT_TOKEN=7224680379:AAFCUQJ_Dda4ZvJgVeAxNpyIzEGdwXpjypU
+ADMIN_ID=6747381596
 # Database (you can remove this line if you want to keep .db in git)
 # clean_ips.db
 
