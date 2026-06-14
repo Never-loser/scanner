@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables (IMPORTANT: never commit real .env)
+.env
+
+# Database (you can remove this line if you want to keep .db in git)
+# clean_ips.db
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
