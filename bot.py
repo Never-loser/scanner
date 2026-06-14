@@ -1,11 +1,28 @@
 import telebot
 from telebot import types
 import re
+import os
+from dotenv import load_dotenv
+
 from database import get_random_approved_ip, count_approved_ips_by_user, add_clean_ip, approve_ip, reject_ip, get_pending_ips
 from ip_parser import replace_ip_in_config
 
-BOT_TOKEN = "7224680379:AAFCUQJ_Dda4ZvJgVeAxNpyIzEGdwXpjypU"
-ADMIN_ID = 6747381596
+# Load environment variables from .env file
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_ID = os.getenv("ADMIN_ID")
+
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN is not set in environment variables! Please set it in .env file.")
+
+if not ADMIN_ID:
+    raise ValueError("ADMIN_ID is not set in environment variables! Please set it in .env file.")
+
+try:
+    ADMIN_ID = int(ADMIN_ID)
+except ValueError:
+    raise ValueError("ADMIN_ID must be a valid integer (your Telegram user ID).")
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -57,7 +74,6 @@ def ask_for_ip(message):
         "آیپی تمیز کلودفلر رو بفرست (مثال: 104.21.10.5):"
     )
     bot.register_next_step_handler(msg, process_ip_submission)
-
 
 
 
